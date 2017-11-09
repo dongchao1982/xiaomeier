@@ -1,9 +1,6 @@
 #encoding=utf-8
 
 from aip import AipSpeech
-import platform
-import pygame
-import os
 import subprocess
 
 """ 你的 APPID AK SK """
@@ -11,8 +8,10 @@ APP_ID = '10334864'
 API_KEY = 'a3oLsPhpPIOYFOmtzatMwmI0'
 SECRET_KEY = 'c424091dd2302302c873ac4804570d28'
 
+filename = 'tempAuido.mp3'
+outfilename = 'tempAuido.wav'
 
-def say(words):
+def words2sound(words):
     if len(words) >= 1024:
         return false
     
@@ -21,16 +20,16 @@ def say(words):
         'vol':10,'per':4
         })
     if not isinstance(result, dict):
-        with open('tempAuido.mp3','wb') as f:
+        with open(filename,'wb') as f:
             f.write(result)
+    else:
+        return false
+    
+    return true
 
 
-say("你好戡戡")
-strPlatform = platform.system()
-if strPlatform == "Linux":
-    #pygame.mixer.init()
-    #pygame.mixer.music.load('tempAuido.mp3')
-    #pygame.mixer.music.play()
-    subprocess.call(['ffmpeg', '-i', 'tempAuido.mp3','tempAuido.wav'])
-    os.system("aplay tempAuido.wav")
+if __name__=="__main__":
+    if len(sys.argv) >= 2:
+        if words2sound(sys.argv[1]):
+            subprocess.call(['ffmpeg', '-i', filename,'-y',outfilename])
     
