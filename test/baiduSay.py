@@ -3,6 +3,7 @@
 from aip import AipSpeech
 import platform
 import pygame
+import os
 
 """ 你的 APPID AK SK """
 APP_ID = '10334864'
@@ -23,9 +24,10 @@ def say(words):
             f.write(result)
 
 
-say("你好，戡戡")
+say("你好戡戡")
 strPlatform = platform.system()
 if strPlatform == "Linux":
-    pygame.mixer.init()
-    pygame.mixer.music.load('tempAuido.mp3')
-    pygame.mixer.music.play()
+    #pygame.mixer.init()
+    #pygame.mixer.music.load('tempAuido.mp3')
+    #pygame.mixer.music.play()
+    os.system("omxplayer tempAuido.mp3")
