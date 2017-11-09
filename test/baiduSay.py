@@ -2,6 +2,7 @@
 
 from aip import AipSpeech
 import subprocess
+import sys
 
 """ 你的 APPID AK SK """
 APP_ID = '10334864'
@@ -13,7 +14,7 @@ outfilename = 'tempAuido.wav'
 
 def words2sound(words):
     if len(words) >= 1024:
-        return false
+        return False
     
     aipSpeech = AipSpeech(APP_ID, API_KEY, SECRET_KEY)
     result = aipSpeech.synthesis(words,'zh',1,{
@@ -23,9 +24,8 @@ def words2sound(words):
         with open(filename,'wb') as f:
             f.write(result)
     else:
-        return false
-    
-    return true
+        return False
+    return True
 
 
 if __name__=="__main__":
