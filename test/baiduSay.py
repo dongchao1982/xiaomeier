@@ -4,6 +4,7 @@ from aip import AipSpeech
 import platform
 import pygame
 import os
+import subprocess
 
 """ 你的 APPID AK SK """
 APP_ID = '10334864'
@@ -30,4 +31,6 @@ if strPlatform == "Linux":
     #pygame.mixer.init()
     #pygame.mixer.music.load('tempAuido.mp3')
     #pygame.mixer.music.play()
-    os.system("omxplayer tempAuido.mp3")
+    subprocess.call(['ffmpeg', '-i', 'tempAuido.mp3','tempAuido.wav'])
+    os.system("aplay tempAuido.wav")
+    
