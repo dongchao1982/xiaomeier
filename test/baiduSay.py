@@ -28,4 +28,4 @@ strPlatform = platform.system()
 if strPlatform == "Linux":
     pygame.mixer.init()
     pygame.mixer.music.load('tempAuido.mp3')
-    pygam.mixer.music.play()
+    pygame.mixer.music.play()
