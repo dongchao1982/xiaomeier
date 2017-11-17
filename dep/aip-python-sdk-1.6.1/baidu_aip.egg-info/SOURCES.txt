@@ -12,3 +12,4 @@ baidu_aip.egg-info/SOURCES.txt
 baidu_aip.egg-info/dependency_links.txt
 baidu_aip.egg-info/requires.txt
 baidu_aip.egg-info/top_level.txt
+bin/aip_client
