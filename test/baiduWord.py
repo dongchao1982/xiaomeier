@@ -1,19 +1,16 @@
 #encoding=utf-8
-
+import ConfigParser
 from aip import AipSpeech
 import sys
 
-""" 你的 APPID AK SK """
-APP_ID = '10334864'
-API_KEY = 'a3oLsPhpPIOYFOmtzatMwmI0'
-SECRET_KEY = 'c424091dd2302302c873ac4804570d28'
+cf = ConfigParser.ConfigParser()
+cf.read("../data/config.txt")
+
+APP_ID = cf.get("baidu","app_id")
+API_KEY = cf.get("baidu","api_key")
+SECRET_KEY = cf.get("baidu","secret_key")
 
 fileformat = 'wav'
-
-# 读取文件
-def get_file_content(filePath):
-    with open(filePath, 'rb') as fp:
-        return fp.read()
 
 def sound2word(filename):
     aipSpeech = AipSpeech(APP_ID, API_KEY, SECRET_KEY)

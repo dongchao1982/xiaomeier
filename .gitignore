@@ -1,2 +1,5 @@
+*.pyc
 .idea
-build
+temp
+data/config.txt
+

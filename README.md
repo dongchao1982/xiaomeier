@@ -4,4 +4,5 @@
 >test-测试代码<br>
 
 备注：<br>
-1、aip-python-sdk 是百度语音识别sdk，使用代码时需要安装
+1、install aip-python-sdk,百度语音识别sdk
+2、install Whoosh,jieba

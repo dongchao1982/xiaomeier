@@ -106,7 +106,7 @@ class AipBase(object):
         except (requests.exceptions.ReadTimeout, requests.exceptions.ConnectTimeout) as e:
             return {
                 'error_code': 'SDK108',
-                'error_msg': 'connection or read data timeout',
+                'error_msg': 'connection or read text timeout',
             }
  
         return obj
