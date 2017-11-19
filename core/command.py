@@ -39,12 +39,14 @@ class command(object):
         results = searcher.find("content", searchWords)
         #按匹配率降序排序
         # ...
+        .
         for hit in results:
             print hit['titel'],hit.score,hit.highlights("content", top=10)
             title_list.append(hit['titel'])
         return title_list
 
-cmd = command()
-cmd.create_index()
-lst = cmd.search("我是中国的")
-print "list:",lst
+if __name__=="__main__":
+    cmd = command()
+    print "BEGIN create_index"
+    cmd.create_index()
+    print "END create_index"
